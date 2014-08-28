@@ -331,11 +331,11 @@ app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQ
                 <div class='quickdate-text-inputs'>
                   <div class='quickdate-input-wrapper'>
                     <label>Date</label>
-                    <input class='quickdate-date-input' ng-class="{'ng-invalid': inputDateErr}" name='inputDate' type='text' ng-model='inputDate' placeholder='1/1/2013' ng-enter="selectDateFromInput(true)" ng-blur="selectDateFromInput(false)" on-tab='onDateInputTab()' />
+                    <input class='quickdate-date-input' class='form-control' ng-class="{'ng-invalid': inputDateErr}" name='inputDate' type='text' ng-model='inputDate' placeholder='1/1/2013' ng-enter="selectDateFromInput(true)" ng-blur="selectDateFromInput(false)" on-tab='onDateInputTab()' />
                   </div>
                   <div class='quickdate-input-wrapper' ng-hide='disableTimepicker'>
                     <label>Time</label>
-                    <input class='quickdate-time-input' ng-class="{'ng-invalid': inputTimeErr}" name='inputTime' type='text' ng-model='inputTime' placeholder='12:00 PM' ng-enter="selectDateFromInput(true)" ng-blur="selectDateFromInput(false)" on-tab='onTimeInputTab()'>
+                    <input class='quickdate-time-input' class='form-control' ng-class="{'ng-invalid': inputTimeErr}" name='inputTime' type='text' ng-model='inputTime' placeholder='12:00 PM' ng-enter="selectDateFromInput(true)" ng-blur="selectDateFromInput(false)" on-tab='onTimeInputTab()'>
                   </div>
                 </div>
                 <div class='quickdate-calendar-header'>
@@ -356,8 +356,8 @@ app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQ
                   </tbody>
                 </table>
                 <div class='quickdate-popup-footer'>
-                  <a href='' class='btn btn-danger' tabindex='-1' ng-hide='disableClearButton' ng-click='clear()'>Clear</a>
-                  <a href='' class='btn btn-default' tabindex='-1' ng-hide='disableTodayButton' ng-click='today()'>Today</a>
+                  <a href='' class='btn btn-sm btn-danger' tabindex='-1' ng-hide='disableClearButton' ng-click='clear()'>Clear</a>
+                  <a href='' class='btn btn-sm btn-primary' tabindex='-1' ng-hide='disableTodayButton' ng-click='today()'>Today</a>
                 </div>
               </div>
             </div>
