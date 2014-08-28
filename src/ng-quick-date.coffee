@@ -331,11 +331,11 @@ app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQ
                 <div class='quickdate-text-inputs'>
                   <div class='quickdate-input-wrapper'>
                     <label>Date</label>
-                    <input class='quickdate-date-input' class='form-control' ng-class="{'ng-invalid': inputDateErr}" name='inputDate' type='text' ng-model='inputDate' placeholder='1/1/2013' ng-enter="selectDateFromInput(true)" ng-blur="selectDateFromInput(false)" on-tab='onDateInputTab()' />
+                    <input class='quickdate-date-input' ng-class="{'ng-invalid': inputDateErr, 'form-control': true}" name='inputDate' type='text' ng-model='inputDate' placeholder='1/1/2013' ng-enter="selectDateFromInput(true)" ng-blur="selectDateFromInput(false)" on-tab='onDateInputTab()' />
                   </div>
                   <div class='quickdate-input-wrapper' ng-hide='disableTimepicker'>
                     <label>Time</label>
-                    <input class='quickdate-time-input' class='form-control' ng-class="{'ng-invalid': inputTimeErr}" name='inputTime' type='text' ng-model='inputTime' placeholder='12:00 PM' ng-enter="selectDateFromInput(true)" ng-blur="selectDateFromInput(false)" on-tab='onTimeInputTab()'>
+                    <input class='quickdate-time-input' ng-class="{'ng-invalid': inputTimeErr, 'form-control': true}" name='inputTime' type='text' ng-model='inputTime' placeholder='12:00 PM' ng-enter="selectDateFromInput(true)" ng-blur="selectDateFromInput(false)" on-tab='onTimeInputTab()'>
                   </div>
                 </div>
                 <div class='quickdate-calendar-header'>
