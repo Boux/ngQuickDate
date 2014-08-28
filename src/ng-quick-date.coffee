@@ -24,6 +24,7 @@ app.provider "ngQuickDateDefaults", ->
       prevLinkHtml: '&larr; Prev'
       disableTimepicker: false
       disableClearButton: false
+      disableTodayButton: false
       defaultTime: null
       dayAbbreviations: ["Su", "M", "Tu", "W", "Th", "F", "Sa"],
       dateFilter: null
@@ -46,7 +47,7 @@ app.provider "ngQuickDateDefaults", ->
   }
 
 app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQuickDateDefaults, $filter, $sce) ->
-  restrict: "E"
+  restrict: "EA"
   require: "?ngModel"
   scope:
     dateFilter: '=?'
@@ -315,13 +316,16 @@ app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQ
     scope.clear = ->
       scope.selectDate(null, true)
 
+    scope.today = ->
+      scope.selectDate(Date.now(), true)
+
     initialize()
 
   # TEMPLATE
   # ================================================================
   template: """
             <div class='quickdate'>
-              <a href='' ng-focus='toggleCalendar()' ng-click='toggleCalendar()' class='quickdate-button' title='{{hoverText}}'><div ng-hide='iconClass' ng-bind-html='buttonIconHtml'></div>{{mainButtonStr}}</a>
+              <a href='' ng-focus='toggleCalendar(true)' ng-click='toggleCalendar()' class='quickdate-button' title='{{hoverText}}'><div ng-hide='iconClass' ng-bind-html='buttonIconHtml'></div>{{mainButtonStr}}</a>
               <div class='quickdate-popup' ng-class='{open: calendarShown}'>
                 <a href='' tabindex='-1' class='quickdate-close' ng-click='toggleCalendar()'><div ng-bind-html='closeButtonHtml'></div></a>
                 <div class='quickdate-text-inputs'>
@@ -352,7 +356,8 @@ app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQ
                   </tbody>
                 </table>
                 <div class='quickdate-popup-footer'>
-                  <a href='' class='quickdate-clear' tabindex='-1' ng-hide='disableClearButton' ng-click='clear()'>Clear</a>
+                  <a href='' class='btn btn-danger' tabindex='-1' ng-hide='disableClearButton' ng-click='clear()'>Clear</a>
+                  <a href='' class='btn btn-default' tabindex='-1' ng-hide='disableTodayButton' ng-click='today()'>Today</a>
                 </div>
               </div>
             </div>
