@@ -317,7 +317,7 @@ app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQ
       scope.selectDate(null, true)
 
     scope.today = ->
-      scope.selectDate(Date.now(), true)
+      scope.selectDate(new Date(), true)
 
     initialize()
 

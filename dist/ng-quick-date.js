@@ -324,7 +324,7 @@
             return scope.selectDate(null, true);
           };
           scope.today = function() {
-            return scope.selectDate(Date.now(), true);
+            return scope.selectDate(new Date(), true);
           };
           return initialize();
         },
