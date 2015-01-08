@@ -356,9 +356,9 @@ app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQ
                   </tbody>
                 </table>
                 <div class='quickdate-popup-footer'>
-                  <a href='' class='btn btn-sm btn-danger' tabindex='-1' ng-hide='disableClearButton' ng-click='clear()'>Clear</a>
-                  <a href='' class='btn btn-sm btn-primary' tabindex='-1' ng-hide='disableTodayButton' ng-click='today()'>Today</a>
-                  <a href='' class='btn btn-sm btn-primary' tabindex='-1' ng-hide='disableTodayButton' ng-click='toggleCalendar(false)'>OK</a>
+                  <a href='' class='btn btn-sm btn-danger' tabindex='-1' ng-hide='disableClearButton' ng-click='clear()'>{{clearText || 'Clear'}}</a>
+                  <a href='' class='btn btn-sm btn-primary' tabindex='-1' ng-hide='disableTodayButton' ng-click='today()'>{{todayText || 'Clear'}}</a>
+                  <a href='' class='btn btn-sm btn-primary' tabindex='-1' ng-hide='disableTodayButton' ng-click='toggleCalendar(false)'>{{okText || 'Clear'}}</a>
                 </div>
               </div>
             </div>
