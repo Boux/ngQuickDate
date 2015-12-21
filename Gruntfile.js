@@ -32,8 +32,8 @@ module.exports = function(grunt) {
         files: ['**/*.coffee', '**/*.less'],
         tasks: ['coffee', 'uglify', 'less'],
         options: {
-          debounceDelay: 250,
-        },
+          debounceDelay: 250
+        }
       }
     }
   });
