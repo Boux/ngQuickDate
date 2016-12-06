@@ -27,10 +27,20 @@
         dayAbbreviations: ["Su", "M", "Tu", "W", "Th", "F", "Sa"],
         dateFilter: null,
         parseDateFunction: function(str) {
+          console.log('DATE: ' + str);
           var seconds;
           seconds = Date.parse(str);
           if (isNaN(seconds)) {
-            return null;
+            // http://stackoverflow.com/questions/2587345/why-does-date-parse-give-incorrect-results
+            // Quick fix to process '2016-12-7 10:12':
+            var parts = str.toString().split(' ');
+            var partsDate = parts[0].toString().split('-');
+            if (parts[1]) {
+              var partsTime = parts[1].toString().split(':');
+              return new Date(partsDate[0], partsDate[1]-1, partsDate[2], partsTime[0], partsTime[1]);
+            } else {
+              return new Date(partsDate[0], partsDate[1]-1, partsDate[2]);
+            }
           } else {
             return new Date(seconds);
           }
