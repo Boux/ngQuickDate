@@ -27,7 +27,6 @@
         dayAbbreviations: ["Su", "M", "Tu", "W", "Th", "F", "Sa"],
         dateFilter: null,
         parseDateFunction: function(str) {
-          console.log('DATE: ' + str);
           var seconds;
           seconds = Date.parse(str);
           if (isNaN(seconds)) {
